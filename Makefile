@@ -5,7 +5,7 @@
 ## Login <moriss_h@epitech.net>
 ##
 ## Started on Mon Oct 22 09:20:28 2012 hugues morisset
-## Last update Tue Sep  3 20:09:20 2013 remi
+## Last update Tue Sep  3 20:17:48 2013 remi robert
 ##
 
 # TO do List :
@@ -50,7 +50,7 @@ $(OBJDIR)%.o:		%.c
 $(NAME):	 	$(OBJ)
 			@echo "-----------------\n"
 			@echo "\033[01m\033[31mLinking ...\033[00m"
-			$(CC) $(OBJ) -o $(NAME) $(CFLAGS)
+			@$(CC) $(OBJ) -o $(NAME) $(CFLAGS)
 			@echo "\n\033[01m\033[32mCompilation done => ${NAME}\033[00m"
 
 all:			checkrepo print $(NAME)
