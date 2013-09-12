@@ -1,11 +1,11 @@
 ##
-## Makefile for Make in /home/moriss_h//afs/rendu/lib/my
-##
-## Made by hugues morisset
-## Login <moriss_h@epitech.net>
-##
-## Started on Mon Oct 22 09:20:28 2012 hugues morisset
-## Last update Tue Sep  3 20:17:48 2013 remi robert
+## Makefile for Makefile in /home/remi/Projet/MyMakefile
+## 
+## Made by remi
+## Login   <remi@epitech.net>
+## 
+## Started on  Thu Sep 12 17:01:12 2013 remi
+## Last update Thu Sep 12 17:01:26 2013 remi
 ##
 
 # TO do List :
@@ -25,7 +25,7 @@ COMPILEFLAG	=	-ggdb3 -Wall -Wextra
 
 INCLUDE		=	-Iinclude/
 
-DEBUG		=	debug
+DEBUG		=	with debug
 
 CFLAGS		=	$(COMPILEFLAG) $(INCLUDE)
 
@@ -34,7 +34,6 @@ SRCBINARY	=	./
 SRCOBJ		=	obj/
 
 SRC		=	$(SRCPATH)main.c \
-			$(SRCPATH)ok.c \
 
 OBJ		=	$(patsubst %.c,${OBJDIR}%.o,$(SRC))
 
@@ -47,13 +46,12 @@ $(OBJDIR)%.o:		%.c
 			echo "\033[01m\033[33m Compiling $(DEBUG)\033[00m\
 			\033[36m$(SRCPATH)$*.c\033[00m\  [Error]"; fi
 
-$(NAME):	 	$(OBJ)
-			@echo "-----------------\n"
+$(NAME):	  	$(OBJ)
 			@echo "\033[01m\033[31mLinking ...\033[00m"
 			@$(CC) $(OBJ) -o $(NAME) $(CFLAGS)
-			@echo "\n\033[01m\033[32mCompilation done => ${NAME}\033[00m"
+			@echo "\033[01m\033[32mCompilation done => ${NAME}\033[00m"
 
-all:			checkrepo print $(NAME)
+all:			$(NAME)
 
 clean:
 			@$(RM) $(OBJ)
@@ -70,9 +68,6 @@ checkrepo:
 			else echo "Creating ${SRCOBJ} repertory ..."; mkdir $(SRCOBJ); fi
 			@if test -d $(SRCBINARY); then echo "Check {SRCBINARY} ok ...";\
 			else echo "Creating ${SRCBINARY} repertory ..."; mkdir $(SRCBINARY); fi
-
-print:
-			@echo "\n-----------------"
 
 .PHONY:			checkrepo all test clean print
 
